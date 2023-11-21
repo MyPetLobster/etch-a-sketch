@@ -1,12 +1,19 @@
-const gridContainer = document.querySelector(".container");
 
+// Global Selectors
+const gridContainer = document.querySelector(".grid-container");
+
+// Dynamic Elements 
 let currentBackgroundColor = "rgb(210, 217, 208)"
+let currentSize = 75;
+let currentPenColor = "blue";
 
-
-
+// Default Mouse State
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+
+window.addEventListener('load', () => {drawGrid(currentSize)});
+
 
 function drawGrid(x) {
     let pixelSize = (100/x)
@@ -19,28 +26,26 @@ function drawGrid(x) {
         gridContainer.appendChild(gridItem);
     }
 }
-
 function fillItem(e) {
     if (e.type === "mouseover" && mouseDown) {
-        e.target.style.backgroundColor = currentColor;
+        e.target.style.backgroundColor = currentPenColor;
     }
 }
-
 function changeBackground(color) {
     gridContainer.style.backgroundColor = color;
 }
 
-let sizeChoice = 75;
 
-currentColor = "blue";
-drawGrid(sizeChoice);
+
+
+
 
 
 const clearAll = document.querySelector("#clear-all");
 
 clearAll.addEventListener('click', () => {
     gridContainer.innerHTML = '';
-    drawGrid(sizeChoice)
+    drawGrid(currentSize)
 });
 
 const changeBG = document.querySelector("#change-bg-color");
@@ -48,3 +53,4 @@ const changeBG = document.querySelector("#change-bg-color");
 changeBG.addEventListener('click', () => {
     changeBackground("rgb(100, 245, 75)")
 });
+
