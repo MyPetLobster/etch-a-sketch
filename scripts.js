@@ -12,7 +12,7 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-window.addEventListener('load', () => {drawGrid(currentSize)});
+// window.addEventListener('load', () => {drawGrid(currentSize)});
 
 
 function drawGrid(x) {
@@ -54,3 +54,18 @@ changeBG.addEventListener('click', () => {
     changeBackground("rgb(100, 245, 75)")
 });
 
+
+
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("display-size");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    gridContainer.innerHTML = '';
+    output.innerHTML = this.value;
+    currentSize = this.value;
+    drawGrid(currentSize);
+}
