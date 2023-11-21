@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+
+
 *,
 *::before,
 *::after {
@@ -32,7 +36,7 @@ body {
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(210, 217, 208);
+    background-color: rgb(200, 205, 199);
     border: 4px solid black;
     border-radius: 5px;
     width: 70vw;
@@ -44,7 +48,11 @@ body {
     border: 1px solid black;
 }
 
-
+.options {
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
 
 @media (min-width: 1000px) {
     .grid-container {
@@ -53,15 +61,16 @@ body {
     }
 }
 
-
-/* test {
-    background-color: rgb(100, 245, 75);
-} */
-
+/* 
+test {
+    background-color: rgb(200, 205, 199);
+}
+ */
 
 
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
+    width: 30%; /* Width of the outside container */
+
   }
   
   /* The slider itself */
@@ -98,3 +107,18 @@ body {
     background: #04AA6D; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+
+
+
+
+.colorPicker::-webkit-color-swatch {
+border-radius: 10%;
+}
+
+.colorPicker {
+    background: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+}

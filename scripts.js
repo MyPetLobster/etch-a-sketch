@@ -3,16 +3,15 @@
 const gridContainer = document.querySelector(".grid-container");
 
 // Dynamic Elements 
-let currentBackgroundColor = "rgb(210, 217, 208)"
 let currentSize = 75;
-let currentPenColor = "blue";
+let currentPenColor = "black";
 
 // Default Mouse State
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-// window.addEventListener('load', () => {drawGrid(currentSize)});
+window.addEventListener('load', () => {drawGrid(currentSize)});
 
 
 function drawGrid(x) {
@@ -45,14 +44,11 @@ const clearAll = document.querySelector("#clear-all");
 
 clearAll.addEventListener('click', () => {
     gridContainer.innerHTML = '';
-    drawGrid(currentSize)
+    changeBackground("rgb(200, 205, 199)")
+    drawGrid(currentSize);
 });
 
-const changeBG = document.querySelector("#change-bg-color");
 
-changeBG.addEventListener('click', () => {
-    changeBackground("rgb(100, 245, 75)")
-});
 
 
 
@@ -70,3 +66,16 @@ slider.oninput = function() {
     
     drawGrid(currentSize);
 }
+
+
+
+function gridToggle () {}
+
+function saveScreenshot() {}
+
+
+const colorSelector = document.querySelector("#color-selector");
+colorSelector.addEventListener('change', () => {currentPenColor = colorSelector.value});
+
+const changeBG = document.querySelector("#bg-color-selector");
+changeBG.addEventListener('change', () => {changeBackground(changeBG.value)});

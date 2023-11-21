@@ -15,9 +15,17 @@
     <div class="options">
         <div class="slidecontainer">
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <div id="display-size"></div>
         </div>
-        <div id="display-size"></div>
-        <button id="change-bg-color">Change BG Color</button>
+        <div class="color-select">
+            <input id="color-selector" name="color" class="colorPicker" type="color">
+            <p>Pen Color</p>
+        </div>
+        <div class="bg-color-select">
+            <input id="bg-color-selector" name="color" class="colorPicker" type="color">
+            <p>Background Color</p>
+        </div>
+        
         <button id="clear-all">Clear Canvas</button>
     </div>
 </body>
