@@ -57,17 +57,9 @@ slider.oninput = function() {
     output.innerHTML = this.value;
     currentSize = 100 - this.value;
     drawGrid(currentSize);
-    
-    
-    // Dynamic Dot Size
-
 }
 
-let dotSize = document.querySelector(".slider::-moz-range-thumb");
-dotSize.addEventListener('change', (e) => {
-    e.style.width = `${currentSize}px`;
-    e.style.height = `${currentSize}px`;
-})
+
 
 function gridToggle () {}
 
