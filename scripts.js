@@ -1,5 +1,9 @@
 const gridContainer = document.querySelector(".container");
 
+let currentBackgroundColor = "rgb(210, 217, 208)"
+
+
+
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
@@ -22,8 +26,9 @@ function fillItem(e) {
     }
 }
 
-// function changeBackground(color) {
-// }
+function changeBackground(color) {
+    gridContainer.style.backgroundColor = color;
+}
 
 let sizeChoice = 75;
 
@@ -36,4 +41,10 @@ const clearAll = document.querySelector("#clear-all");
 clearAll.addEventListener('click', () => {
     gridContainer.innerHTML = '';
     drawGrid(sizeChoice)
+});
+
+const changeBG = document.querySelector("#change-bg-color");
+
+changeBG.addEventListener('click', () => {
+    changeBackground("rgb(100, 245, 75)")
 });

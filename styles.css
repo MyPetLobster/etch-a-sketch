@@ -20,6 +20,8 @@ body {
     background-color: rgb(75, 177, 245);
     font-family: "Rubik Mono One";
 }
+
+
 #main-container {
     height: 100vh;
     width: 100vw;
@@ -41,4 +43,11 @@ body {
 
 .pixel {
     border: 1px solid black;
+}
+
+
+
+
+test {
+    background-color: rgb(100, 245, 75);
 }
