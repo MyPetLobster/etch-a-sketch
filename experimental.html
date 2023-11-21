@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
-<body>
-    <h1>etch-AI-sketch</h1>
-    <h3>Experimental cutting-edge AI art generation technology</h3>
-    <div class="main-container">
+<body id="exp-body">
+    <div class="experimental-container">
+        <h1 id="exp-h1">etch-AI-sketch</h1>
+        <h3 id="exp-h3">Experimental cutting-edge AI art generation technology</h3>
+        
         <div class="grid-container"></div>
-    </div>
-    <div class="exp-options">
-        <input type="text" default="Enter Prompt Here"/>
+        
+        <div class="wrapper">
+            <h1 class="title">AI Image Generator</h1>
+            <div class="input">
+              <input type="text" id="input" class="Input-text" placeholder="Enter prompt here">
+              <label for="input" class="Input-label">Press 'Enter' to submit</label>
+            </div>
+        </div>
+        <footer id="footer" class="main-item">
+            <p>Copyright &copy <strike>MyPetLobster</strike> ME...the AI 2023</p>
+            <a href="index.html">Back to Safety</a>
+        </footer>
     </div>
 </body>
 </html>

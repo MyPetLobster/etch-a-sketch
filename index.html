@@ -8,12 +8,15 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <h1>Etch-A-Sketch!</h1>
-    <div class="main-container">
+    <h1 class="body-item">Etch-A-Sketch!</h1>
+
+    <div class="main-container body-item">
         <div id="capture" class="grid-container"></div>
     </div>
-    <div class="menu">
+
+    <div class="menu body-item">
         <div class="slidecontainer menu-item">
+            <p>Pen Size</p>
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
             <div id="display-size"></div>
         </div>
@@ -21,16 +24,15 @@
             <input id="color-selector" name="color" class="colorPicker" type="color">
             <p>Pen Color</p>
         </div>
-        <div class="bg-color-select menu-item">
+        <div class="color-select menu-item">
             <input id="bg-color-selector" name="color" class="colorPicker" type="color">
-            <p>Background Color</p>
+            <p>BG Color</p>
         </div>
-        
+        <button id="grid-toggle" class="menu-item menu-btn" role="button">Toggle Grid</button>
         <button id="clear-all" class="menu-item menu-btn" role="button">Clear Canvas</button>
     </div>
     
-    <div class="canvas-container"></div>
-    <footer>
+    <footer id="footer" class="main-item">
         <p>Copyright &copy MyPetLobster 2023</p>
         <a href="experimental.html">Experimental Mode</a>
     </footer>
