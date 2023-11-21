@@ -5,6 +5,7 @@ const gridContainer = document.querySelector(".grid-container");
 // Dynamic Elements (default state)
 let currentSize = 75;
 let currentPenColor = "black";
+let gridOn = false;
 
 // Default Mouse State
 let mouseDown = false;
@@ -60,8 +61,42 @@ slider.oninput = function() {
 }
 
 
+const gridButton = document.querySelector("#grid-toggle");
+gridButton.addEventListener('click', () => {gridToggle()});
 
-function gridToggle () {}
+// let pixelList = document.querySelectorAll(".pixel");
+// let listLength = pixelList.length;
+
+
+function gridToggle() {
+    const allPixels = document.querySelectorAll('.pixel');
+    if (gridOn) {
+        for (const pixel of allPixels) {
+            pixel.style.border = 'none';
+        } 
+        gridOn = false;
+    } else {
+        for (const pixel of allPixels) {
+            pixel.style.border = '1px solid black';
+        }
+        gridOn = true;
+    }
+
+}
 
 
 
+// function gridToggle() {
+//     if (gridOn) {
+//         for (let i = 0; i < listLength; i++) {
+//             pixelList[i].style.border = 'none';
+//         } 
+//         gridOn = false;
+//     } else {
+//         for (let i = 0; i < listLength; i++) {
+//             pixelList[i].style.border = "1px solid black";
+//         }
+//         gridOn = true;
+//     }
+
+// }

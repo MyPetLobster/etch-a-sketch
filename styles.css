@@ -41,7 +41,7 @@ body {
   user-select: none;
 }
 .pixel {
-  border: 1px solid black;
+  border: none;
 }
 .body-item {
   margin: 25px;
