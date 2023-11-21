@@ -66,6 +66,7 @@ output.innerHTML = slider.value; // Display the default slider value
 slider.oninput = function() {
     gridContainer.innerHTML = '';
     output.innerHTML = this.value;
-    currentSize = this.value;
+    currentSize = 100 - this.value;
+    
     drawGrid(currentSize);
 }
