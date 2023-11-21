@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 
-
+/* ----- Universal Styling ----- */
 *,
 *::before,
 *::after {
@@ -13,112 +13,141 @@ html {
   font-size: 62.5%;
 }
 body {
-    /* border: 2px solid black; */
-    box-sizing: border-box;  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  box-sizing: border-box;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    font-size: 1.6rem;
-    color: #063250;
-    background-color: rgb(75, 177, 245);
-    font-family: "Rubik Mono One";
+  font-size: 1.6rem;
+  color: #063250;
+  background-color: rgb(75, 177, 245);
+  font-family: "Rubik Mono One";
 }
 
+
+/* Main Containers Styling */
 .main-container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(200, 205, 199);
-    border: 4px solid black;
-    border-radius: 5px;
-    width: 70vw;
-    height: 70vw;
-    user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(200, 205, 199);
+  border: 4px solid black;
+  border-radius: 5px;
+  width: 70vw;
+  height: 70vw;
+  user-select: none;
 }
-
 .pixel {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
-.options {
-    width: 60vw;
-    display: flex;
-    justify-content: space-between;
+
+/* ----- MENU STYLING ------ */
+.menu {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-item {
+  width: 20%;
 }
 
+
+/* ----- Main Media Queries ----- */
 @media (min-width: 1000px) {
-    .grid-container {
-        width: 50vw;
-        height: 50vw;
-    }
+  .grid-container {
+    width: 50vw;
+    height: 50vw;
+  }
 }
 
-/* 
-test {
-    background-color: rgb(200, 205, 199);
-}
- */
 
-
+/* ----- Pen Slider Styling ----- */
 .slidecontainer {
-    width: 30%; /* Width of the outside container */
-
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-
-
-
-
-
-.colorPicker::-webkit-color-swatch {
-border-radius: 10%;
+  width: 30%;
+}
+.slider {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100%;
+  height: 25px; 
+  background: #d3d3d3; 
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1; 
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 25px; 
+  height: 25px; 
+  background: #04AA6D; 
+  cursor: pointer; 
+}
+.slider::-moz-range-thumb {
+  width: 25px; 
+  height: 25px; 
+  background: #04AA6D; 
+  cursor: pointer; 
 }
 
+
+/* Color Swatch Styling */
+.colorPicker::-webkit-color-swatch {
+  border-radius: 10%;
+}
 .colorPicker {
-    background: none;
-    border: none;
-    height: 50px;
-    width: 50px;
+  background: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+}
+
+
+/* Button Styling */
+.menu-btn {
+  height: 50px;
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.menu-btn:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+@media (min-width: 768px) {
+  .menu-btn {
+    padding: 1rem 2rem;
+  }
+}
+
+
+/* Footer Styling */
+footer {
+  width: 70vw;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
 }

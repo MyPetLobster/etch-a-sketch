@@ -10,23 +10,29 @@
 <body>
     <h1>Etch-A-Sketch!</h1>
     <div class="main-container">
-        <div class="grid-container"></div>
+        <div id="capture" class="grid-container"></div>
     </div>
-    <div class="options">
-        <div class="slidecontainer">
+    <div class="menu">
+        <div class="slidecontainer menu-item">
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
             <div id="display-size"></div>
         </div>
-        <div class="color-select">
+        <div class="color-select menu-item">
             <input id="color-selector" name="color" class="colorPicker" type="color">
             <p>Pen Color</p>
         </div>
-        <div class="bg-color-select">
+        <div class="bg-color-select menu-item">
             <input id="bg-color-selector" name="color" class="colorPicker" type="color">
             <p>Background Color</p>
         </div>
         
-        <button id="clear-all">Clear Canvas</button>
+        <button id="clear-all" class="menu-item menu-btn" role="button">Clear Canvas</button>
     </div>
+    
+    <div class="canvas-container"></div>
+    <footer>
+        <p>Copyright &copy MyPetLobster 2023</p>
+        <a href="experimental.html">Experimental Mode</a>
+    </footer>
 </body>
 </html>
