@@ -81,51 +81,50 @@ function changeBackground(color) {
     gridContainer.style.backgroundColor = color;
 }
 
-// Selectors and Actions
-const clearAll = document.querySelector("#clear-all");
-['click', 'touchstart'].forEach(evt => 
-    clearAll.addEventListener(evt, () => {
+if (window.location.pathname === '/etch-a-sketch/index.html') {
+    // Selectors and Actions
+    const clearAll = document.querySelector("#clear-all");
+    ['click', 'touchstart'].forEach(evt => 
+        clearAll.addEventListener(evt, () => {
+            gridContainer.innerHTML = '';
+            changeBackground("rgb(200, 205, 199)")
+            drawGrid(currentSize);
+    }))
+
+    const colorSelector = document.querySelector("#color-selector");
+    colorSelector.addEventListener('change', () => {
+        currentPenColor = colorSelector.value;
+        brushColorText.style.color = currentPenColor;
+        headerOne.style.color = currentPenColor;
+        gridContainer.style.border = `4px solid ${currentPenColor}`;
+    });
+
+    const changeBG = document.querySelector("#bg-color-selector");
+    changeBG.addEventListener('change', () => {
+        changeBackground(changeBG.value);
+        bgColorText.style.color = changeBG.value;
+    });
+
+
+    // Slider Controls and Display Function
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("display-size");
+    output.innerHTML = slider.value; 
+    slider.oninput = function() {
         gridContainer.innerHTML = '';
-        changeBackground("rgb(200, 205, 199)")
+        output.innerHTML = this.value;
+        currentSize = 100 - this.value;
         drawGrid(currentSize);
-        
-}))
+    }
 
 
+    const gridButton = document.querySelector("#grid-toggle");
 
-const colorSelector = document.querySelector("#color-selector");
-colorSelector.addEventListener('change', () => {
-    currentPenColor = colorSelector.value;
-    brushColorText.style.color = currentPenColor;
-    headerOne.style.color = currentPenColor;
-    gridContainer.style.border = `4px solid ${currentPenColor}`;
-});
-
-const changeBG = document.querySelector("#bg-color-selector");
-changeBG.addEventListener('change', () => {
-    changeBackground(changeBG.value);
-    bgColorText.style.color = changeBG.value;
-});
-
-
-// Slider Controls and Display Function
-var slider = document.getElementById("myRange");
-var output = document.getElementById("display-size");
-output.innerHTML = slider.value; 
-slider.oninput = function() {
-    gridContainer.innerHTML = '';
-    output.innerHTML = this.value;
-    currentSize = 100 - this.value;
-    drawGrid(currentSize);
+    ['click', 'touchstart'].forEach(evt =>
+        gridButton.addEventListener(evt, () => {gridToggle();})
+    );
 }
 
-
-const gridButton = document.querySelector("#grid-toggle");
-// gridButton.addEventListener('click', () => {gridToggle()});
-
-['click', 'touchstart'].forEach(evt =>
-    gridButton.addEventListener(evt, () => {gridToggle();})
-);
 
 
 function gridToggle() {
@@ -173,8 +172,16 @@ function drawRandom(color) {
     }
 }
 
-// const promptField = document.querySelector("#input");
-// promptField.addEventListener('submit', () => {
-//     drawRandom(generateRandomColor())
-// });
 
+
+const textField = document.querySelector('#input');
+const submitPrompt = document.querySelector('#prompt-button');
+
+submitPrompt.addEventListener('click', () => {
+    textField.value = '';
+    drawRandom(generateRandomColor());
+});
+
+// ['click', 'touchstart'].forEach(evt =>
+//     submitPrompt.addEventListener(evt, () => {alert("button working")})
+// );

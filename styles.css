@@ -191,9 +191,12 @@ footer {
   );
 }
 .wrapper {
+  display: flex;
+  flex-direction: column;
   flex: 0 0 80%;
   max-width: 80%;
   margin-bottom: 50px;
+  
 }
 .title {
   margin: 40px;
@@ -268,6 +271,20 @@ footer {
     z-index 0ms;
 }
 
+
+
+#prompt-button {
+  width: 150px;
+  margin-top: 20px;
+  color: #000000;
+  background-color: #6bc257;
+  align-self: center;
+}
+
+#prompt-button:hover {
+  background-image: linear-gradient(-180deg, #000000 0%, #6bc257 100%);
+  color: #f9f9f9;
+}
 
 
 
