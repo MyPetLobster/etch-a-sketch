@@ -50,6 +50,12 @@ h1 {
   font-size: 44px;
 }
 
+
+.testColorPicker::-webkit-color-swatch {}
+
+
+
+
 /* ----- MENU STYLING ------ */
 .menu {
   width: 80vw;
@@ -64,7 +70,7 @@ h1 {
   text-align: center;
   margin: 15px;
 }
-/* Color Swatch Styling */
+Color Swatch Styling */
 .color-select {
   display: flex;
   align-items: center;
@@ -78,6 +84,7 @@ h1 {
   height: 35px;
   width: 35px;
 }
+
 
 
 /* ----- Pen Slider Styling ----- */

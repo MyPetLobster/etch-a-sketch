@@ -7,44 +7,18 @@ let currentSize = 75;
 let currentPenColor = "black";
 let gridOn = false;
 
+
+
+
+
 // // Default Mouse State
-// let mouseDown = false;
-// document.body.onmousedown = () => (mouseDown = true);
-// document.body.onmouseup = () => (mouseDown = false);
-
-// // Draw initial grid when page loads
-// window.addEventListener('load', () => {drawGrid(currentSize)});
-
-// // FUNCTIONS
-// function drawGrid(x) {
-//     let pixelSize = (100/x)
-//     for (let i = 0; i < (x * x); i++) {
-//         let gridItem = document.createElement("div");
-//         gridItem.classList.add("pixel");
-//         gridItem.style.width = `${pixelSize}%`;
-//         gridItem.style.height = `${pixelSize}%`;
-//         gridItem.addEventListener('mouseover', fillItem);
-//         gridContainer.appendChild(gridItem);
-//     }
-// }
-
-// function fillItem(e) {
-//     if (e.type === "mouseover" && mouseDown) {
-//         e.target.style.backgroundColor = currentPenColor;
-//     } 
-// }
-
-
-
-
-// Default Mouse State
 let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+gridContainer.onmousedown = () => (mouseDown = true);
+gridContainer.onmouseup = () => (mouseDown = false);
 
-// Add touch events
-document.body.ontouchstart = () => (mouseDown = true);
-document.body.ontouchend = () => (mouseDown = false);
+// // Add touch events
+gridContainer.ontouchstart = () => (mouseDown = true);
+gridContainer.ontouchend = () => (mouseDown = false);
 
 // Draw initial grid when page loads
 window.addEventListener('load', () => {drawGrid(currentSize)});
@@ -109,6 +83,7 @@ const clearAll = document.querySelector("#clear-all");
 
 const colorSelector = document.querySelector("#color-selector");
 colorSelector.addEventListener('change', () => {currentPenColor = colorSelector.value});
+
 const changeBG = document.querySelector("#bg-color-selector");
 changeBG.addEventListener('change', () => {changeBackground(changeBG.value)});
 
