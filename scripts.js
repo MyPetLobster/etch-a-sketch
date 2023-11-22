@@ -88,7 +88,6 @@ if (window.location.pathname === '/etch-a-sketch/index.html') {
     const eraserCheck = document.querySelector("#eraser-check");
 
     eraserCheck.addEventListener('change', () => {
-        alert('eraser change registered');
         eraserOn = !eraserOn;
         if (eraserOn === true) {
             previousPenColor = currentPenColor;
@@ -97,10 +96,6 @@ if (window.location.pathname === '/etch-a-sketch/index.html') {
             currentPenColor = previousPenColor;
         }
     });
-
-
-
-
 
     const clearAll = document.querySelector("#clear-all");
     ['click', 'touchstart'].forEach(evt => 
