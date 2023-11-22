@@ -3,7 +3,7 @@
 const gridContainer = document.querySelector(".grid-container");
 
 // Dynamic Elements (default state)
-let currentSize = 75;
+let currentSize = 50;
 let currentPenColor = "black";
 let gridOn = false;
 
@@ -22,11 +22,16 @@ gridContainer.onmouseup = () => (mouseDown = false);
 gridContainer.ontouchstart = () => (mouseDown = true);
 gridContainer.ontouchend = () => (mouseDown = false);
 
-// Draw initial grid when page loads
-window.addEventListener('load', () => {
-    drawGrid(currentSize);
-    bgColorText.style.color = "rgb(200, 205, 199)";
-    changeBG.value = "#c8cdc7"
+// Draw initial grid depending on which page is loaded
+window.addEventListener('load', function() {
+    // Check if it's the main page
+    if (window.location.pathname === '/etch-a-sketch/index.html') {
+        drawGrid(currentSize);
+        bgColorText.style.color = "rgb(200, 205, 199)";
+        changeBG.value = "#c8cdc7";
+    } else if (window.location.pathname === '/etch-a-sketch/experimental.html') {
+        drawGrid(95);
+    }
 });
 
 // FUNCTIONS
@@ -139,4 +144,37 @@ function gridToggle() {
 
 }
 
+
+
+
+// if experimental button pressed
+// disable grid
+// change border color to same green
+// set grid size to max (pen size min)
+
+// random brush color function
+
+
+function generateRandomColor() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return `#${randomColor}`;
+}
+
+
+
+function drawRandom(color) {
+    const pixelList = document.querySelectorAll('.pixel');
+
+    for (let i=0; i < 9025; i++) {
+        let randomInt = Math.floor(Math.random()*3);
+        if (randomInt === 0) {
+            pixelList[i].style.backgroundColor = color;
+        };
+    }
+}
+
+// const promptField = document.querySelector("#input");
+// promptField.addEventListener('submit', () => {
+//     drawRandom(generateRandomColor())
+// });
 
