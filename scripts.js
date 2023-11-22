@@ -18,9 +18,11 @@ let mouseDown = false;
 gridContainer.onmousedown = () => (mouseDown = true);
 gridContainer.onmouseup = () => (mouseDown = false);
 
-// // Add touch events
+// Add touch events
 gridContainer.ontouchstart = () => (mouseDown = true);
 gridContainer.ontouchend = () => (mouseDown = false);
+
+
 
 // Draw initial grid depending on which page is loaded
 window.addEventListener('load', function() {
@@ -73,10 +75,6 @@ function fillItem(e) {
     }
 }
 
-
-
-
-
 function changeBackground(color) {
     gridContainer.style.backgroundColor = color;
 }
@@ -119,13 +117,14 @@ if (window.location.pathname === '/etch-a-sketch/index.html') {
 
 
     const gridButton = document.querySelector("#grid-toggle");
-
+    gridButton.ontouchstart = () => (mouseDown = true);
+    gridButton.ontouchend = () => (mouseDown = false);
     ['click', 'touchstart'].forEach(evt =>
-        gridButton.addEventListener(evt, () => {gridToggle();})
+        gridButton.addEventListener(evt, () => {
+            gridToggle();
+        })
     );
 }
-
-
 
 function gridToggle() {
     const allPixels = document.querySelectorAll('.pixel');
@@ -140,7 +139,6 @@ function gridToggle() {
         }
         gridOn = true;
     }
-
 }
 
 
@@ -159,16 +157,35 @@ function generateRandomColor() {
     return `#${randomColor}`;
 }
 
-
-
 function drawRandom(color) {
     const pixelList = document.querySelectorAll('.pixel');
+    const gridSize = Math.sqrt(pixelList.length);
 
-    for (let i=0; i < 9025; i++) {
-        let randomInt = Math.floor(Math.random()*3);
-        if (randomInt === 0) {
+    for (let i = 0; i < pixelList.length; i++) {
+        // Generate a random number between 0 and 1
+        let randomFloat = Math.random();
+
+        // Adjust the probability based on the position
+        let probability = Math.pow(randomFloat, 1.5);
+
+        // Check if the random probability allows coloring
+        if (probability > 0.5) {
             pixelList[i].style.backgroundColor = color;
-        };
+
+            // Introduce some clustering effect
+            let clusterSize = Math.floor(Math.random() * 5);
+            for (let j = 1; j <= clusterSize; j++) {
+                // Randomly color nearby pixels
+                let xOffset = Math.floor(Math.random() * 5) - 2;
+                let yOffset = Math.floor(Math.random() * 5) - 2;
+
+                let newIndex = i + xOffset + yOffset * gridSize;
+
+                if (newIndex >= 0 && newIndex < pixelList.length) {
+                    pixelList[newIndex].style.backgroundColor = color;
+                }
+            }
+        }
     }
 }
 
@@ -179,9 +196,9 @@ const submitPrompt = document.querySelector('#prompt-button');
 
 submitPrompt.addEventListener('click', () => {
     textField.value = '';
-    drawRandom(generateRandomColor());
+    for (let i = 0; i < 6; i++) {
+        drawRandom(generateRandomColor());
+    }
 });
 
-// ['click', 'touchstart'].forEach(evt =>
-//     submitPrompt.addEventListener(evt, () => {alert("button working")})
-// );
+
