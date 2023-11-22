@@ -51,9 +51,6 @@ h1 {
 }
 
 
-.testColorPicker::-webkit-color-swatch {}
-
-
 
 
 /* ----- MENU STYLING ------ */
@@ -77,6 +74,7 @@ Color Swatch Styling */
 }
 .colorPicker::-webkit-color-swatch {
   border-radius: 10%;
+
 }
 .colorPicker {
   background: none;

@@ -7,8 +7,10 @@ let currentSize = 75;
 let currentPenColor = "black";
 let gridOn = false;
 
+let brushColorText = document.querySelector("#brushColorText");
+let bgColorText = document.querySelector("#bgColorText");
 
-
+let headerOne = document.querySelector(".header-one");
 
 
 // // Default Mouse State
@@ -21,7 +23,11 @@ gridContainer.ontouchstart = () => (mouseDown = true);
 gridContainer.ontouchend = () => (mouseDown = false);
 
 // Draw initial grid when page loads
-window.addEventListener('load', () => {drawGrid(currentSize)});
+window.addEventListener('load', () => {
+    drawGrid(currentSize);
+    bgColorText.style.color = "rgb(200, 205, 199)";
+    changeBG.value = "#c8cdc7"
+});
 
 // FUNCTIONS
 function drawGrid(x) {
@@ -77,15 +83,24 @@ const clearAll = document.querySelector("#clear-all");
         gridContainer.innerHTML = '';
         changeBackground("rgb(200, 205, 199)")
         drawGrid(currentSize);
+        
 }))
 
 
 
 const colorSelector = document.querySelector("#color-selector");
-colorSelector.addEventListener('change', () => {currentPenColor = colorSelector.value});
+colorSelector.addEventListener('change', () => {
+    currentPenColor = colorSelector.value;
+    brushColorText.style.color = currentPenColor;
+    headerOne.style.color = currentPenColor;
+    gridContainer.style.border = `4px solid ${currentPenColor}`;
+});
 
 const changeBG = document.querySelector("#bg-color-selector");
-changeBG.addEventListener('change', () => {changeBackground(changeBG.value)});
+changeBG.addEventListener('change', () => {
+    changeBackground(changeBG.value);
+    bgColorText.style.color = changeBG.value;
+});
 
 
 // Slider Controls and Display Function
