@@ -7,10 +7,44 @@ let currentSize = 75;
 let currentPenColor = "black";
 let gridOn = false;
 
+// // Default Mouse State
+// let mouseDown = false;
+// document.body.onmousedown = () => (mouseDown = true);
+// document.body.onmouseup = () => (mouseDown = false);
+
+// // Draw initial grid when page loads
+// window.addEventListener('load', () => {drawGrid(currentSize)});
+
+// // FUNCTIONS
+// function drawGrid(x) {
+//     let pixelSize = (100/x)
+//     for (let i = 0; i < (x * x); i++) {
+//         let gridItem = document.createElement("div");
+//         gridItem.classList.add("pixel");
+//         gridItem.style.width = `${pixelSize}%`;
+//         gridItem.style.height = `${pixelSize}%`;
+//         gridItem.addEventListener('mouseover', fillItem);
+//         gridContainer.appendChild(gridItem);
+//     }
+// }
+
+// function fillItem(e) {
+//     if (e.type === "mouseover" && mouseDown) {
+//         e.target.style.backgroundColor = currentPenColor;
+//     } 
+// }
+
+
+
+
 // Default Mouse State
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+
+// Add touch events
+document.body.ontouchstart = () => (mouseDown = true);
+document.body.ontouchend = () => (mouseDown = false);
 
 // Draw initial grid when page loads
 window.addEventListener('load', () => {drawGrid(currentSize)});
@@ -23,26 +57,56 @@ function drawGrid(x) {
         gridItem.classList.add("pixel");
         gridItem.style.width = `${pixelSize}%`;
         gridItem.style.height = `${pixelSize}%`;
-        gridItem.addEventListener('mouseover', fillItem)
+        if (gridOn) {
+            gridItem.style.border = "1px solid black";
+        } else {
+            gridItem.style.border = "none";
+        }
+        gridItem.addEventListener('mouseover', fillItem);
+        gridItem.addEventListener('touchmove', fillItem);
         gridContainer.appendChild(gridItem);
     }
 }
+
 function fillItem(e) {
-    if (e.type === "mouseover" && mouseDown) {
-        e.target.style.backgroundColor = currentPenColor;
+    let target;
+    if (e.type === "touchmove") {
+        // Get the element under the finger
+        let touch = e.touches[0];
+        target = document.elementFromPoint(touch.clientX, touch.clientY);
+        
+        // Only prevent the default action if the touchmove is happening on a pixel
+        if (target.classList.contains('pixel')) {
+            e.preventDefault(); // Prevent the default touch action
+        }
+    } else {
+        target = e.target;
+    }
+
+    if (mouseDown && target.classList.contains('pixel')) {
+        target.style.backgroundColor = currentPenColor;
     }
 }
+
+
+
+
+
 function changeBackground(color) {
     gridContainer.style.backgroundColor = color;
 }
 
 // Selectors and Actions
 const clearAll = document.querySelector("#clear-all");
-clearAll.addEventListener('click', () => {
-    gridContainer.innerHTML = '';
-    changeBackground("rgb(200, 205, 199)")
-    drawGrid(currentSize);
-});
+['click', 'touchstart'].forEach(evt => 
+    clearAll.addEventListener(evt, () => {
+        gridContainer.innerHTML = '';
+        changeBackground("rgb(200, 205, 199)")
+        drawGrid(currentSize);
+}))
+
+
+
 const colorSelector = document.querySelector("#color-selector");
 colorSelector.addEventListener('change', () => {currentPenColor = colorSelector.value});
 const changeBG = document.querySelector("#bg-color-selector");
@@ -62,10 +126,11 @@ slider.oninput = function() {
 
 
 const gridButton = document.querySelector("#grid-toggle");
-gridButton.addEventListener('click', () => {gridToggle()});
+// gridButton.addEventListener('click', () => {gridToggle()});
 
-// let pixelList = document.querySelectorAll(".pixel");
-// let listLength = pixelList.length;
+['click', 'touchstart'].forEach(evt =>
+    gridButton.addEventListener(evt, () => {gridToggle();})
+);
 
 
 function gridToggle() {
@@ -85,18 +150,3 @@ function gridToggle() {
 }
 
 
-
-// function gridToggle() {
-//     if (gridOn) {
-//         for (let i = 0; i < listLength; i++) {
-//             pixelList[i].style.border = 'none';
-//         } 
-//         gridOn = false;
-//     } else {
-//         for (let i = 0; i < listLength; i++) {
-//             pixelList[i].style.border = "1px solid black";
-//         }
-//         gridOn = true;
-//     }
-
-// }
