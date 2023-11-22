@@ -190,14 +190,15 @@ function drawRandom(color) {
 }
 
 
-
 const textField = document.querySelector('#input');
 const submitPrompt = document.querySelector('#prompt-button');
 
 submitPrompt.addEventListener('click', () => {
-    textField.value = '';
-    for (let i = 0; i < 6; i++) {
-        drawRandom(generateRandomColor());
+    if (textField.value !== '') {
+        textField.value = '';
+        for (let i = 0; i < 6; i++) {
+            drawRandom(generateRandomColor());
+        }
     }
 });
 
