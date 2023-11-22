@@ -51,8 +51,6 @@ h1 {
 }
 
 
-
-
 /* ----- MENU STYLING ------ */
 .menu {
   width: 80vw;
@@ -349,4 +347,13 @@ footer {
 
 #ai {
   color: #6bc257;
+}
+
+
+
+/* ----- Checkbox ----- */
+
+#eraser-check {
+  width: 30px;
+  height: 30px;
 }

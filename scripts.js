@@ -1,6 +1,7 @@
 
 // Global Selectors
 const gridContainer = document.querySelector(".grid-container");
+let currentBackgroundColor = "#c8cdc7";
 
 // Dynamic Elements (default state)
 let currentSize = 50;
@@ -29,7 +30,7 @@ window.addEventListener('load', function() {
     // Check if it's the main page
     if (window.location.pathname === '/etch-a-sketch/index.html') {
         drawGrid(currentSize);
-        bgColorText.style.color = "rgb(200, 205, 199)";
+        // bgColorText.style.color = "rgb(200, 205, 199)";
         changeBG.value = "#c8cdc7";
     } else if (window.location.pathname === '/etch-a-sketch/experimental.html') {
         drawGrid(95);
@@ -81,6 +82,26 @@ function changeBackground(color) {
 
 if (window.location.pathname === '/etch-a-sketch/index.html') {
     // Selectors and Actions
+
+    let previousPenColor = 'black';
+    let eraserOn = false;
+    const eraserCheck = document.querySelector("#eraser-check");
+
+    eraserCheck.addEventListener('change', () => {
+        alert('eraser change registered');
+        eraserOn = !eraserOn;
+        if (eraserOn === true) {
+            previousPenColor = currentPenColor;
+            currentPenColor = currentBackgroundColor;
+        } else {
+            currentPenColor = previousPenColor;
+        }
+    });
+
+
+
+
+
     const clearAll = document.querySelector("#clear-all");
     ['click', 'touchstart'].forEach(evt => 
         clearAll.addEventListener(evt, () => {
@@ -100,6 +121,7 @@ if (window.location.pathname === '/etch-a-sketch/index.html') {
     const changeBG = document.querySelector("#bg-color-selector");
     changeBG.addEventListener('change', () => {
         changeBackground(changeBG.value);
+        currentBackgroundColor = changeBG.value;
         bgColorText.style.color = changeBG.value;
     });
 
@@ -143,13 +165,6 @@ function gridToggle() {
 
 
 
-
-// if experimental button pressed
-// disable grid
-// change border color to same green
-// set grid size to max (pen size min)
-
-// random brush color function
 
 
 function generateRandomColor() {
@@ -201,5 +216,6 @@ submitPrompt.addEventListener('click', () => {
         }
     }
 });
+
 
 
