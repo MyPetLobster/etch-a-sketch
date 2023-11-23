@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+
+/* ----- Universal Styling ----- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 1.6rem;
+  color: #063250;
+  background-color: rgb(75, 177, 245);
+  font-family: "Rubik Mono One";
+}
+
+/* Main Containers Styling */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(200, 205, 199);
+  border: 4px solid black;
+  border-radius: 5px;
+  width: 85vw;
+  height: 85vw;
+  user-select: none;
+}
+.pixel {
+  border: none;
+}
+.body-item {
+  margin: 25px;
+}
+h1 {
+  font-size: 44px;
+}
+
+
+/* #bgColorText {
+} */
+
+/* ----- MENU STYLING ------ */
+.menu {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 0;
+}
+.menu-item { 
+  font-size: 14px;
+  text-align: center;
+  margin: 15px;
+}
+Color Swatch Styling */
+.color-select {
+  display: flex;
+  align-items: center;
+}
+.colorPicker::-webkit-color-swatch {
+  border-radius: 10%;
+
+}
+.colorPicker {
+  background: none;
+  border: none;
+  height: 35px;
+  width: 35px;
+}
+
+
+
+/* ----- Pen Slider Styling ----- */
+.slide-container {
+  /* width: ; */
+  font-size: 16px;
+}
+.slider {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100%;
+  height: 4px; 
+  background: #000000; 
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1; 
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 15px; 
+  height: 15px; 
+  border-radius: 50%;
+  background: #063250; 
+  cursor: pointer; 
+}
+.slider::-moz-range-thumb {
+  width: 25px; 
+  height: 25px; 
+  background: #04AA6D; 
+  cursor: pointer; 
+}
+
+/* Button Styling */
+.menu-btn {
+  height: 50px;
+  background-color: #063250;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: rgb(75, 177, 245);
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.2rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "Rubik Mono One";
+}
+.menu-btn:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #063250 100%);
+}
+
+/* Footer Styling */
+footer {
+  width: 70vw;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  margin-bottom:8px;
+  position: relative;
+}
+
+
+/* ------ EXPERIMENTAL MODE ------ */
+
+#exp-h1 {
+  margin: 25px;
+}
+#exp-h3 {
+  margin: 25px;
+}
+#exp-body {
+  background-color: rgb(22, 18, 18);
+  color: #eaf8f3;
+  text-align: center;
+}
+.experimental-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.exp-grid {
+  border: 4px solid #6bc257;
+}
+
+/* ----- Prompt Text Input ----- */
+:root {
+  --inputPaddingV: 0.8rem; 
+  --inputFontSize: 2.1rem; 
+  --inputLineHeight: 1.8; 
+  --labelScaleFactor: 0.8; 
+  --labelDefaultPosY: 50%; 
+  --labelTransformedPosY: calc(
+    (var(--labelDefaultPosY)) - 
+    (var(--inputPaddingV) * var(--labelScaleFactor)) - 
+    (var(--inputFontSize) * var(--inputLineHeight))
+  );
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 80%;
+  max-width: 80%;
+  margin-bottom: 50px;
+  
+}
+.title {
+  margin: 40px;
+  padding: 0;
+  color: #eaf8f3;
+  font-size: 24px;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: -0.1rem 0.1rem 0.2rem #6bc257;
+}
+.input {
+  position: relative;
+  color: #0c0d0d;
+}
+.Input-text {
+  display: block;
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: inherit;
+  line-height: 1.8;
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow 300ms;
+}
+.Input-text::placeholder {
+  color: #d0dadf;
+}
+.Input-text:focus {
+  outline: none;
+  box-shadow: 0.2rem 0.8rem 1.6rem #6bc257;
+}
+.Input-label {
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  left: 1rem;
+  color: #eaf8f3;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: inherit;
+  line-height: 1.8;
+  opacity: 0;
+  transform: 
+    translate3d(0, 50%, 0)
+    scale(1);
+  transform-origin: 0 0;
+  transition:
+    opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
+    visibility 0ms 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
+    z-index 0ms 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.Input-text:placeholder-shown + .Input-label {
+  visibility: hidden;
+  z-index: -1;
+}
+.Input-text:not(:placeholder-shown) + .Input-label,
+.Input-text:focus:not(:placeholder-shown) + .Input-label {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform:
+    translate3d(0, var(--labelTransformedPosY), 0)
+    scale(0.8);
+  transition:
+    transform 300ms,
+    visibility 0ms,
+    z-index 0ms;
+}
+
+
+
+#prompt-button {
+  width: 150px;
+  margin-top: 20px;
+  color: #000000;
+  background-color: #6bc257;
+  align-self: center;
+}
+
+#prompt-button:hover {
+  background-image: linear-gradient(-180deg, #000000 0%, #6bc257 100%);
+  color: #f9f9f9;
+}
+
+
+
+/* ----- Main Media Queries ----- */
+@media (min-width: 768px) {
+  .menu-btn {
+    padding: 1rem 2rem;
+  }
+  .grid-container {
+    width: 80vh;
+    height: 80vh;
+  }
+}
+@media (max-width: 700px) {
+  .exp-footer {
+    font-size: 8px;
+    width: 95vw;
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+  footer {
+    width: 95vw;
+  }
+}
+@media (max-width: 440px) {
+  .menu {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  footer {
+    font-size: 8px;
+  }
+  #exp-h1 {
+    margin-bottom: 8px;
+  }
+  #exp-h3 {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 400px) {
+  .exp-footer {
+    font-size: 6px;
+  }
+  #exp-h3 {
+    font-size: 14px;
+  }
+}
+/* @media (min-width: 1000px) {
+  .grid-container {
+    width: 80vh;
+    height: 80vh;
+  }
+} */
+
+
+
+#ai {
+  color: #6bc257;
+}
+
+
+
+/* ----- Checkbox ----- */
+
+#eraser-check {
+  width: 30px;
+  height: 30px;
+}

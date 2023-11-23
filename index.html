@@ -3,46 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>etch-a-sketch</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
 
 <body>
-    
-    <h1 class="body-item header-one">Etch-A-Sketch!</h1>
+<main>
+    <h1>Etch-A-Sketch</h1>
 
-    <div class="main-container body-item">
-        <div id="capture" class="grid-container"></div>
+    <div class="canvas">
+        <!-- CANVAS HERE -->
     </div>
 
-    
+    <div class="slider-container">
+        <input type="slider">
+    </div>
 
-    <div class="menu body-item">
-        <div class="slide-container menu-item">
-            <p>Brush Size</p>
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <div id="display-size"></div>
+    <div class="settings-container">
+        <div class="checkbox-container">
+            <input type="checkbox" name="eraser" id="eraser-checkbox">
+            <p>Eraser</p>
         </div>
-        <div class="menu-item eraser">
-            <input id="eraser-check" type="checkbox">
-            <p id="eraser-text">Eraser</p>
+        <div class="show-grid-container">
+            <input type="checkbox" name="show-grid" id="show-grid-checkbox">
+            <p>Show Grid</p>
         </div>
-        <div class="color-select menu-item">
-            <input id="color-selector" name="color" class="colorPicker" type="color" value="black">
-            <p id="brushColorText">Brush Color</p>
+        <div class="brush-color-container">
+            <input type="color" name="color" class="color-picker" id="brush-color-selector" value="black">
+            <p>Brush</p>
         </div>
-        <div class="color-select menu-item">
-            <input id="bg-color-selector" name="color" class="colorPicker" type="color" value="rgb(200, 205, 199)">
-            <p id="bgColorText">BG Color</p>
+        <div class="bg-color-container">
+            <input type="color" name="background-color" class="color-picker" id="bg-color-selector" value="white">
+            <p>Background</p>
         </div>
-        <button id="grid-toggle" class="menu-item menu-btn" role="button">Toggle Grid</button>
-        <button id="clear-all" class="menu-item menu-btn" role="button">Clear Canvas</button>
+    </div>
+
+    <div class="reset-canvas">
+        <button type="button" role="reset-canvas" id="reset-canvas-button">Reset Canvas</button>
     </div>
     
-    <footer id="footer" class="main-item">
+    <footer class="footer">
         <a href="https://github.com/MyPetLobster/etch-a-sketch">Copyright &copy MyPetLobster 2023</a>
         <a class="exp-link" href="experimental.html">Experimental Mode</a>
     </footer>
+</main>
 </body>
 </html>
