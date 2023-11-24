@@ -17,25 +17,26 @@
     </div>
 
     <div class="slider-container">
-        <input type="slider">
+        <input type="range" min="1" max="100" value="50" name="brush-size" class="slider">
+        <label for="brush-size">Brush Size <span id="brush-size-display"></span></label>
     </div>
 
     <div class="settings-container">
         <div class="checkbox-container">
-            <input type="checkbox" name="eraser" id="eraser-checkbox">
-            <p>Eraser</p>
+            <input type="checkbox" name="eraser" class="checkbox" id="eraser-checkbox">
+            <label for="eraser-checkbox">Eraser</label>
         </div>
         <div class="show-grid-container">
-            <input type="checkbox" name="show-grid" id="show-grid-checkbox">
-            <p>Show Grid</p>
+            <input type="checkbox" name="show-grid" class="checkbox" id="show-grid-checkbox">
+            <label for="show-grid-checkbox">Show Grid</label>
         </div>
         <div class="brush-color-container">
-            <input type="color" name="color" class="color-picker" id="brush-color-selector" value="black">
-            <p>Brush</p>
+            <input type="color" name="color" class="color-picker" id="brush-color-selector" value="#000000">
+            <label for="brush-color-selector">Brush</label>
         </div>
         <div class="bg-color-container">
-            <input type="color" name="background-color" class="color-picker" id="bg-color-selector" value="white">
-            <p>Background</p>
+            <input type="color" name="background-color" class="color-picker" id="bg-color-selector" value="#ffffff">
+            <label for="bg-color-selector">Background</label>
         </div>
     </div>
 

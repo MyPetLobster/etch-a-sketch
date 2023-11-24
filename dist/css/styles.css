@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
+
+/* ----- UNIVERSAL ----- */
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Londrina Sketch";
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    font-size: 48px;
+    margin: 15px;
+}
+
+.canvas {
+    height: 85vw;
+    width: 85vw;
+    border: 6px solid black;
+    border-radius: 2%;
+}
+label {
+    font-size: 24px;
+}
+
+
+
+/* ----- HOMEPAGE ----- */
+.settings-container {
+    width: 85vw;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+}
+.settings-container > div,
+.slider-container {
+    border: 1px solid teal;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    align-items: center;
+}
+.checkbox {
+    margin: 5px;
+    height: 25px;
+    width: 25px;
+    border-radius: 10%;
+}
+.color-picker {
+    height: 35px;
+    width: 35px;
+    background: none;
+    border: none;
+}
+.color-picker::-webkit-color-swatch {
+    border-radius: 10%;
+  }
+
+  #reset-canvas-button {
+    height: 50px;
+    font-size: 24px;
+    font-family: "Londrina Shadow";
+    border-radius: 10px;
+    margin: 15px;
+}
+
+
+/* ----- MEDIA QUERIES ----- */
+@media (min-width: 40em) {
+    h1 {
+        font-size: 60px;
+        margin: 15px;
+    }
+}
+
+@media (min-width: 60em) {
+
+    h1 {
+        font-size: 75px;
+        margin: 15px;
+    }
+    .canvas {
+        height: 85vh;
+        width: 85vh;
+    }
+    .settings-container {
+        width: 85vh;
+        border: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; */
+    }
+}
+
