@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
 
 /* ----- UNIVERSAL ----- */
-
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Londrina Sketch";
+
+    background-color: rgb(166, 166, 166);
+    color: #28393D;
 }
 main {
     display: flex;
@@ -22,17 +24,16 @@ h3 {
     margin-top: 0;
     margin-bottom: 10px;
 }
-
 .canvas {
     height: 85vw;
     width: 85vw;
-    border: 6px solid black;
+    border: 6px solid #28393D;
     border-radius: 2%;
+    background-color: #eef1f3;
 }
 label {
     font-size: 24px;
 }
-
 footer {
     width: 85vw;
     display: flex;
@@ -41,20 +42,15 @@ footer {
 }
 
 
-
 /* ----- HOMEPAGE ----- */
 .settings-container {
     width: 85vw;
-    border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; */
+    font-weight: bold;
 }
 .settings-container > div,
 .slider-container {
-    border: 1px solid teal;
     display: flex;
     flex-direction: column;
     margin: 15px;
@@ -79,7 +75,12 @@ footer {
 .color-picker::-webkit-color-swatch {
     border-radius: 10%;
   }
-
+#bg-label {
+    color: #eef1f3;
+}
+#brush-label {
+    color: #28393D
+}
   #reset-canvas-button {
     height: 50px;
     font-size: 24px;
@@ -87,9 +88,6 @@ footer {
     border-radius: 10px;
     margin: 15px;
 }
-
-
-
 
 
 /* ----- EXPERIMENTAL MODE ----- */
@@ -101,15 +99,13 @@ footer {
     margin-right: 15px;
     font-family: "Londrina Outline";
 }
-
 #AI-description {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 15px;
     margin-bottom: 5px;
 }
 #scientific-amurica {
-    border: 2px solid pink;
-    font-size: 14px;
+    font-size: 16px;
     text-align: right;
     position: relative;
     right: 10px;
@@ -117,8 +113,6 @@ footer {
     margin-bottom: 15px;
 
 }
-
-
 .prompt-form {
     display: flex;
     flex-direction: column;
@@ -144,13 +138,70 @@ footer {
     font-family: "Londrina Shadow";
     border-radius: 10px;
     margin: 15px;
-
 }
 
 
 
+/* ----- RANGE SLIDER ----- */
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 200px;
+}
 
+/* Removes default focus */
+input[type="range"]:focus {
+    outline: none;
+}
 
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #eef1f3;
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+    background-color: #28393D;
+    border-radius: 0.5rem;
+    height: 16px;
+    width: 16px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 3px solid #28393D;
+    outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #eef1f3;
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    background-color: #28393D;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 16px;
+    width: 16px;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+    outline: 3px solid #28393D;
+    outline-offset: 0.125rem;
+}
 /* ----- MEDIA QUERIES ----- */
 @media (min-width: 640px) {
     h1 {
@@ -158,20 +209,19 @@ footer {
         margin: 15px;
     }
     h3 {
-        font-size: 22px;
+        font-size: 26px;
     }
     footer {
         width: 85vh;
         font-size: 18px;
     }
     #AI-description {
-        font-size: 22px;
+        font-size: 26px;
     }
     #scientific-amurica {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
-
 @media (min-width: 960px) {
 
     h1 {
@@ -179,7 +229,7 @@ footer {
         margin: 15px;
     }
     h3 {
-        font-size: 28px;
+        font-size: 32px;
     }
     .canvas {
         height: 85vh;
@@ -187,21 +237,23 @@ footer {
     }
     .settings-container {
         width: 85vh;
-        border: 1px solid black;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         /* display: flex;
         flex-wrap: wrap;
         justify-content: space-around; */
     }
+    .footer {
+        width: 90%;
+    }
 
     #AI-description {
-        font-size: 28px;
+        font-size: 30px;
     }
     #scientific-amurica {
         font-size: 24px;
     }
 
-    
+
 }
 
