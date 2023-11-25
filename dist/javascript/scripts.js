@@ -5,6 +5,9 @@ let currentBackgroundColor = "#eef1f3";
 let currentBrushColor = "#28393D";
 let currentSize = 50;
 
+const checkboxes = document.querySelectorAll(".checkbox");
+const eraserCheckbox = document.querySelector("#eraser-checkbox");
+
 let gridOn = false;
 let eraserOn = false;
 
@@ -127,8 +130,11 @@ const footerLink = document.querySelectorAll(".footer-link");
 brushColor.addEventListener("change", () => {
     currentBrushColor = brushColor.value;
     brushLabel.style.color = currentBrushColor;
-   
     gridCanvas.style.border = `6px solid ${currentBrushColor}`;
+
+    checkboxes.forEach(box => {
+        box.style.accentColor = currentBrushColor;
+    })
 
     headingWords.forEach(word => {
         word.style.color = currentBrushColor;
@@ -142,7 +148,7 @@ brushColor.addEventListener("change", () => {
 
 // Eraser
 let lastBrushColor = currentBrushColor
-const eraserCheckbox = document.querySelector("#eraser-checkbox");
+
 eraserCheckbox.addEventListener("change", () => {
     eraserOn = !eraserOn;
     if (eraserOn) {

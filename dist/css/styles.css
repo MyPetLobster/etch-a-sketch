@@ -93,7 +93,9 @@ button {
     height: 25px;
     width: 25px;
     border-radius: 10%;
+    accent-color: #28393D;
 }
+
 .color-picker {
     height: 35px;
     width: 35px;
