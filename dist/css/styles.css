@@ -25,7 +25,7 @@ h1 {
 h3 {
     font-size: 16px;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .canvas {
     display: flex;
@@ -95,6 +95,73 @@ footer {
 
 
 /* ----- EXPERIMENTAL MODE ----- */
+
+
+
+
+/* ----- RANGE SLIDER ----- */
+/*********** Baseline, reset styles ***********/
+#brush-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 200px;
+}
+
+/* Removes default focus */
+#brush-slider:focus {
+    outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+#brush-slider::-webkit-slider-runnable-track {
+    background-color: #eef1f3;
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+#brush-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+    background-color: #28393D;
+    border-radius: 0.5rem;
+    height: 16px;
+    width: 16px;
+}
+
+/* #brush-slider:focus::-webkit-slider-thumb {
+    outline: 3px solid #28393D;
+    outline-offset: 0.125rem;
+} */
+
+/*********** Firefox styles ***********/
+/* slider track */
+#brush-slider::-moz-range-track {
+    background-color: #eef1f3;
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+#brush-slider::-moz-range-thumb {
+    background-color: #28393D;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 16px;
+    width: 16px;
+}
+
+/* #brush-slider:focus::-moz-range-thumb{
+    outline: 3px solid #28393D;
+    outline-offset: 0.125rem;
+} */
+
+
+/* ----- EXPERIMENTAL MODE ----- */
 .testimonial-container {
     display: flex;
     flex-direction: column;
@@ -123,13 +190,14 @@ footer {
     align-items: center;
     margin: 0px 15px 15px 15px;
 }
-#prompt-label{
+.prompt-label{
     font-family: "Londrina Shadow";
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 5px;
+    color: #e522c4;
 }
-#prompt-text {
-    font-family: "Londrina Outline";
+.prompt-text {
+    font-family: "Londrina Shadow";
     font-size: 18px;
     width: 90%;
     height: 30px;
@@ -145,75 +213,52 @@ footer {
 }
 
 
-
-/* ----- RANGE SLIDER ----- */
-/*********** Baseline, reset styles ***********/
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    width: 200px;
+#experimental-main {
+    background-color: #0a0a0a;
+    color: #67c718;
+}
+.exp-heading-container {
+    display: flex;
+}
+#AI-span {
+    margin: 0;
+    font-size: 52px;
+    position: relative;
+    top: 18px;
+    transform: rotate(18deg);
+    color: #e522c4;
+}
+#experimental-canvas {
+    border: 8px solid #e522c4;
+}
+.exp-footer-link:link {
+    text-decoration: none;
+    color: #67c718
 }
 
-/* Removes default focus */
-input[type="range"]:focus {
-    outline: none;
+.exp-footer-link:visited {
+    text-decoration: none;
+    color: #386e0c
 }
 
-/******** Chrome, Safari, Opera and Edge Chromium styles ********/
-/* slider track */
-input[type="range"]::-webkit-slider-runnable-track {
-    background-color: #eef1f3;
-    border-radius: 1rem;
-    height: 0.5rem;
+.exp-footer-link:hover {
+    text-decoration: none;
+    color: #891877;
 }
 
-/* slider thumb */
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    margin-top: -4px; /* Centers thumb on the track */
-    background-color: #28393D;
-    border-radius: 0.5rem;
-    height: 16px;
-    width: 16px;
+.exp-footer-link:active {
+    text-decoration: none;
+    color: #e522c4;
 }
-
-/* input[type="range"]:focus::-webkit-slider-thumb {
-    outline: 3px solid #28393D;
-    outline-offset: 0.125rem;
-} */
-
-/*********** Firefox styles ***********/
-/* slider track */
-input[type="range"]::-moz-range-track {
-    background-color: #eef1f3;
-    border-radius: 1rem;
-    height: 0.5rem;
-}
-
-/* slider thumb */
-input[type="range"]::-moz-range-thumb {
-    background-color: #28393D;
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0.5rem;
-    height: 16px;
-    width: 16px;
-}
-
-/* input[type="range"]:focus::-moz-range-thumb{
-    outline: 3px solid #28393D;
-    outline-offset: 0.125rem;
-} */
-
-
 
 /* ----- MEDIA QUERIES ----- */
 @media (min-width: 640px) {
     h1 {
         font-size: 60px;
         margin: 15px;
+    }
+    #AI-span {
+        font-size: 68px;
     }
     h3 {
         font-size: 26px;
@@ -228,12 +273,22 @@ input[type="range"]::-moz-range-thumb {
     #scientific-amurica {
         font-size: 20px;
     }
+    .prompt-label {
+        font-size: 35px;
+    }
+    .prompt-text {
+        width: 400px;
+        height: 40px;
+    }
 }
 @media (min-width: 960px) {
 
     h1 {
         font-size: 75px;
         margin: 15px;
+    }
+    #AI-span {
+        font-size: 80px;
     }
     h3 {
         font-size: 32px;
@@ -253,6 +308,7 @@ input[type="range"]::-moz-range-thumb {
     .footer {
         width: 90%;
     }
+    
 
     #AI-description {
         font-size: 30px;
@@ -260,6 +316,14 @@ input[type="range"]::-moz-range-thumb {
     #scientific-amurica {
         font-size: 24px;
     }
+    .prompt-label {
+        font-size: 40px;
+    }
+    .prompt-text {
+        width: 600px;
+        height: 50px;
+    }
+
 
 
 }
