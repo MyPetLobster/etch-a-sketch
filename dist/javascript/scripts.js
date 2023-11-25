@@ -122,10 +122,12 @@ bgColor.addEventListener("change", () => {
 const brushColor = document.querySelector("#brush-color-selector");
 const brushLabel = document.querySelector("#brush-label");
 const headingWords = document.querySelectorAll(".heading-word");
+const footerLink = document.querySelectorAll(".footer-link");
 
 brushColor.addEventListener("change", () => {
     currentBrushColor = brushColor.value;
     brushLabel.style.color = currentBrushColor;
+   
     gridCanvas.style.border = `6px solid ${currentBrushColor}`;
 
     headingWords.forEach(word => {
@@ -134,6 +136,7 @@ brushColor.addEventListener("change", () => {
 
     let thumb = document.querySelector("#brush-slider");
     thumb.style.setProperty('--thumb-clr', `${currentBrushColor}`);
+    
 })
 
 

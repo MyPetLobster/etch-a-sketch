@@ -53,7 +53,14 @@ footer {
     width: 85vw;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 14px
+}
+.footer-link {
+    text-decoration: none;
+    color: #28393D;
+}
+.footer-link:hover {
+    color: #eef1f3;
 }
 button {
     height: 50px;
@@ -105,10 +112,31 @@ button {
 #reset-canvas-button {
 
 }
+#reset-canvas-button:hover {
+    background-color: #28393D;
+    color: #eef1f3;
+}
 
-
-/* ----- EXPERIMENTAL MODE ----- */
-
+#random-colors-button:hover {
+    background-image: linear-gradient(to right, rgb(88, 175, 0), rgb(187, 132, 29), rgb(125, 2, 117), rgb(16, 133, 104), rgb(28, 95, 189), rgb(159, 69, 42), rgb(42, 13, 138), rgb(88, 175, 0));
+    animation:slidebg 6s linear infinite;
+    color: white;
+}
+@keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
+  }
+  
+  .follow{
+    margin-top: 40px;
+  }
+  
+  .follow a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
 
 
 
