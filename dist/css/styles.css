@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
 
+/* :root {
+    --slider-clr: #28393D;
+} */
+
+
+
+
 /* ----- UNIVERSAL ----- */
-* {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 body {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Londrina Sketch";
@@ -47,10 +55,19 @@ footer {
     justify-content: space-between;
     font-size: 14px;
 }
-
+button {
+    height: 50px;
+    font-size: 24px;
+    font-family: "Londrina Shadow";
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 15px;
+}
 
 /* ----- HOMEPAGE ----- */
-
+.heading-dash {
+    color: #eef1f3;
+}
 .settings-container {
     width: 85vw;
     display: grid;
@@ -85,12 +102,8 @@ footer {
 #brush-label {
     color: #28393D
 }
-  #reset-canvas-button {
-    height: 50px;
-    font-size: 24px;
-    font-family: "Londrina Shadow";
-    border-radius: 10px;
-    margin: 15px;
+#reset-canvas-button {
+
 }
 
 
@@ -117,7 +130,7 @@ footer {
 /******** Chrome, Safari, Opera and Edge Chromium styles ********/
 /* slider track */
 #brush-slider::-webkit-slider-runnable-track {
-    background-color: #eef1f3;
+    background-color: var(--track-clr, #eef1f3);
     border-radius: 1rem;
     height: 0.5rem;
 }
@@ -127,7 +140,7 @@ footer {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     margin-top: -4px; /* Centers thumb on the track */
-    background-color: #28393D;
+    background-color: var(--thumb-clr, #28393D);
     border-radius: 0.5rem;
     height: 16px;
     width: 16px;
@@ -141,14 +154,14 @@ footer {
 /*********** Firefox styles ***********/
 /* slider track */
 #brush-slider::-moz-range-track {
-    background-color: #eef1f3;
+    background-color: var(--track-clr, #eef1f3);
     border-radius: 1rem;
     height: 0.5rem;
 }
 
 /* slider thumb */
 #brush-slider::-moz-range-thumb {
-    background-color: #28393D;
+    background-color: var(--thumb-clr, #28393D);
     border: none; /*Removes extra border that FF applies*/
     border-radius: 0.5rem;
     height: 16px;
@@ -203,15 +216,71 @@ footer {
     height: 30px;
     border-radius: 5px;
 }
-#submit-prompt-button {
-    width: 100px;
-    height: 50px;
-    font-size: 24px;
+.neon-button {
+
     font-family: "Londrina Shadow";
-    border-radius: 10px;
-    margin: 15px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 60px;
+    font-size: 24px;
+
+    display: inline-block;
+    cursor: pointer;
+    color: #e522c4;
+    background: transparent;
+    text-decoration: none;
+    border: .125em solid #e522c4;;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+
+    text-shadow: 0 0 0.125em #ffffff88, 0 0 0.45em #e522c4;
+
+    box-shadow: 
+        inset 0 0 0.5em 0e #e522c4,
+        0 0 0.5em 0 #e522c4;
+
+    position: relative;
 }
 
+.neon-button::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: #e522c4;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(30deg) scale(1, 0.35);
+    filter: blur(1.5em);
+    opacity: 0.7;
+
+}
+
+.neon-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 1em 0.2em #e522c4;
+    opacity: 0;
+    
+    transition: opacity 100ms linear;
+    
+}
+
+.neon-button:hover,
+.neon-button:focus {
+    background: #e522c4;
+    color:#0a0a0a;
+    text-shadow: none;
+}
+.neon-button:hover::after {
+    opacity: 1;
+}
 
 #experimental-main {
     background-color: #0a0a0a;

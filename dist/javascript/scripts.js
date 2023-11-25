@@ -113,6 +113,9 @@ bgColor.addEventListener("change", () => {
     headingDashes.forEach(dash => {
         dash.style.color = currentBackgroundColor;
     })
+
+    let track = document.querySelector("#brush-slider");
+    track.style.setProperty("--track-clr", `${currentBackgroundColor}`);
 });
 
 // Brush Color Selector
@@ -128,6 +131,9 @@ brushColor.addEventListener("change", () => {
     headingWords.forEach(word => {
         word.style.color = currentBrushColor;
     });
+
+    let thumb = document.querySelector("#brush-slider");
+    thumb.style.setProperty('--thumb-clr', `${currentBrushColor}`);
 })
 
 
