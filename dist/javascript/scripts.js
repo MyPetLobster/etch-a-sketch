@@ -1,3 +1,6 @@
+
+
+
 // Declare all universal variables
 
 const gridCanvas = document.querySelector(".canvas");
@@ -20,6 +23,7 @@ gridCanvas.onmouseup = () => (mouseDown = false);
 // Add touch events
 gridCanvas.ontouchstart = () => (mouseDown = true);
 gridCanvas.ontouchend = () => (mouseDown = false);
+
 
 
 
@@ -90,6 +94,7 @@ function drawRandomArt() {
 // Event Listeners and Actions
 
 
+
 // Range Slider Controls and Display Function
 let slider = document.querySelector("#brush-slider");
 let output = document.querySelector("#brush-size-display");
@@ -136,6 +141,9 @@ function updateBrushColors(color) {
     thumb.style.setProperty('--thumb-clr', `${color}`);
 }
 
+
+
+
 // Background Color Selector
 const bgColor = document.querySelector("#bg-color-selector");
 const bgLabel = document.querySelector("#bg-label");
@@ -158,6 +166,8 @@ function updateBackgroundColors(color) {
 }
 
 
+
+
 // Eraser
 let lastBrushColor = currentBrushColor
 
@@ -171,11 +181,15 @@ eraserCheckbox.addEventListener("change", () => {
     }
 })
 
+
+
 // Grid Toggle
 const gridCheckbox = document.querySelector("#show-grid-checkbox");
 gridCheckbox.addEventListener("change", () => {
     gridToggle();
 })
+
+
 
 // Clear All
 const clearCanvas = document.querySelector("#reset-canvas-button");
@@ -203,7 +217,6 @@ randomColorButton.addEventListener("click", () => {
 
 
 // EXPERIMENTAL MODE
-
 
 
 

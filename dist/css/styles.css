@@ -244,7 +244,7 @@ button {
     font-size: 18px;
     width: 90%;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .neon-button {
 
@@ -261,7 +261,7 @@ button {
     text-decoration: none;
     border: .125em solid #e522c4;;
     padding: 0.25em 1em;
-    border-radius: 0.25em;
+    border-radius: 0.4em;
 
     text-shadow: 0 0 0.125em #ffffff88, 0 0 0.45em #e522c4;
 
@@ -328,7 +328,7 @@ button {
     color: #e522c4;
 }
 #experimental-canvas {
-    background-color: #e0820e;
+    background-color: #d1fbcd;
     border: 8px solid #e522c4;
 }
 .exp-footer-link:link {
