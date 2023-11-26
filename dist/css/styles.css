@@ -328,6 +328,7 @@ button {
     color: #e522c4;
 }
 #experimental-canvas {
+    background-color: #e0820e;
     border: 8px solid #e522c4;
 }
 .exp-footer-link:link {

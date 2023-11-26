@@ -74,11 +74,13 @@ function gridToggle() {
         gridOn = true;
     }
 }
-
-
 function generateRandomColor() {
-
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return `#${randomColor}`;
 }
+
+
+
 
 function drawRandomArt() {
 
@@ -104,46 +106,56 @@ window.addEventListener('load', function() {
     drawGrid(currentSize);
 })
 
+
+// Brush Color Selector
+const brushColor = document.querySelector("#brush-color-selector");
+const brushLabel = document.querySelector("#brush-label");
+const brushSizeText = document.querySelector("#brush-size-text");
+const headingWords = document.querySelectorAll(".heading-word");
+const footerLink = document.querySelectorAll(".footer-link");
+
+brushColor.addEventListener("change", () => {
+    currentBrushColor = brushColor.value;
+    updateBrushColors(currentBrushColor);
+})
+
+function updateBrushColors(color) {
+    brushLabel.style.color = color;
+    brushSizeText.style.color = color;
+    gridCanvas.style.border = `6px solid ${color}`;
+
+    checkboxes.forEach(box => {
+        box.style.accentColor = color;
+    })
+
+    headingWords.forEach(word => {
+        word.style.color = color;
+    });
+
+    let thumb = document.querySelector("#brush-slider");
+    thumb.style.setProperty('--thumb-clr', `${color}`);
+}
+
 // Background Color Selector
 const bgColor = document.querySelector("#bg-color-selector");
 const bgLabel = document.querySelector("#bg-label");
 const headingDashes = document.querySelectorAll(".heading-dash");
 bgColor.addEventListener("change", () => {
     currentBackgroundColor = bgColor.value;
-    gridCanvas.style.backgroundColor = currentBackgroundColor;
-    bgLabel.style.color = currentBackgroundColor;
+    updateBackgroundColors(currentBackgroundColor);
+});
+
+function updateBackgroundColors(color) {
+    gridCanvas.style.backgroundColor = color;
+    bgLabel.style.color = color;
     
     headingDashes.forEach(dash => {
-        dash.style.color = currentBackgroundColor;
+        dash.style.color = color;
     })
 
     let track = document.querySelector("#brush-slider");
-    track.style.setProperty("--track-clr", `${currentBackgroundColor}`);
-});
-
-// Brush Color Selector
-const brushColor = document.querySelector("#brush-color-selector");
-const brushLabel = document.querySelector("#brush-label");
-const headingWords = document.querySelectorAll(".heading-word");
-const footerLink = document.querySelectorAll(".footer-link");
-
-brushColor.addEventListener("change", () => {
-    currentBrushColor = brushColor.value;
-    brushLabel.style.color = currentBrushColor;
-    gridCanvas.style.border = `6px solid ${currentBrushColor}`;
-
-    checkboxes.forEach(box => {
-        box.style.accentColor = currentBrushColor;
-    })
-
-    headingWords.forEach(word => {
-        word.style.color = currentBrushColor;
-    });
-
-    let thumb = document.querySelector("#brush-slider");
-    thumb.style.setProperty('--thumb-clr', `${currentBrushColor}`);
-    
-})
+    track.style.setProperty("--track-clr", `${color}`);
+}
 
 
 // Eraser
@@ -175,8 +187,37 @@ const clearCanvas = document.querySelector("#reset-canvas-button");
 }))
 
 
+// Color Randomizer
+const randomColorButton = document.querySelector("#random-colors-button");
+randomColorButton.addEventListener("click", () => {
+    currentBackgroundColor = generateRandomColor();
+    currentBrushColor = generateRandomColor();
+
+    brushColor.value = currentBrushColor;
+    updateBrushColors(currentBrushColor);
+
+    bgColor.value = currentBackgroundColor;
+    updateBackgroundColors(currentBackgroundColor);
+})
+
 
 
 // EXPERIMENTAL MODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
