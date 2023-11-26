@@ -56,35 +56,39 @@ function drawRandom(color) {
     }
 }
 
-// Submit Prompt
-const textField = document.querySelector(".prompt-text");
-const submitPrompt = document.querySelector("#submit-prompt-button");
-const promptForm = document.querySelector(".prompt-form")
-
-function handleForm(event) { 
-    event.preventDefault(); 
-    if (handleForm.value !== '') {
-        picasso()
-    }
-} 
-
-promptForm.addEventListener('submit', handleForm);
-
-submitPrompt.addEventListener('click', () => {
-    picasso();
-});
-
 
 
 function picasso() {
-    if (textField.value !== '') {
-        textField.value = '';
-        for (let i = 0; i < 20; i++) {
-            drawRandom(generateRandomColor());
-        }
+    let pixelList = document.querySelectorAll(".pixel");
+    if (pixelList.length === 0) {
+        drawGrid(99);
+    } 
+    textField.value = "";
+    for (let i = 0; i < 20; i++) {
+        drawRandom(generateRandomColor());
     }
 }
 
 
+const textField = document.querySelector(".prompt-text");
+const promptForm = document.querySelector(".prompt-form");
+
+
+
+// Submit Prompt
+function handleForm(event) {
+    event.preventDefault();
+    const inputValue = textField.value.toLowerCase(); // Convert the input to lowercase for case-insensitive comparison
+    if (inputValue === "mona lisa") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/mona-lisa.jpg')";
+        gridCanvas.style.backgroundSize = "contain";
+        
+    } else if (inputValue !== "") {
+        picasso();
+    }
+}
+
+promptForm.addEventListener('submit', handleForm);
 
 
