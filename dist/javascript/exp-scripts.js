@@ -83,11 +83,35 @@ function handleForm(event) {
         gridCanvas.innerHTML = "";
         gridCanvas.style.backgroundImage = "url('../../images/mona-lisa.jpg')";
         gridCanvas.style.backgroundSize = "contain";
-        
+    } else if (inputValue === "dog") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/dog-1.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
+    } else if (inputValue === "dogs" || inputValue === "cute") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/joselyn-daisy.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
+    } else if (inputValue === "cat" || inputValue === "kitty") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/cat-2.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
+    } else if (inputValue === "handsome" || inputValue === "hot") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/handsome.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
+    } else if (inputValue === "bff" || inputValue === "friends") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/bff.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
+    } else if (inputValue === "love" || inputValue === "family") {
+        gridCanvas.innerHTML = "";
+        gridCanvas.style.backgroundImage = "url('../../images/family.jpg')";
+        gridCanvas.style.backgroundSize = "contain";  // Fix here
     } else if (inputValue !== "") {
         picasso();
     }
 }
+
 
 promptForm.addEventListener('submit', handleForm);
 
