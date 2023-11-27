@@ -1,8 +1,4 @@
-
-
-
 // Declare all universal variables
-
 const gridCanvas = document.querySelector(".canvas");
 let currentBackgroundColor = "#eef1f3";
 let currentBrushColor = "#28393D";
@@ -14,8 +10,7 @@ const eraserCheckbox = document.querySelector("#eraser-checkbox");
 let gridOn = false;
 let eraserOn = false;
 
-
-// // Default Mouse State
+// Default Mouse State
 let mouseDown = false;
 gridCanvas.onmousedown = () => (mouseDown = true);
 gridCanvas.onmouseup = () => (mouseDown = false);
@@ -24,11 +19,7 @@ gridCanvas.onmouseup = () => (mouseDown = false);
 gridCanvas.ontouchstart = () => (mouseDown = true);
 gridCanvas.ontouchend = () => (mouseDown = false);
 
-
-
-
 // Function Definitions
-
 function drawGrid(size) {
     let pixelSize = (100/size)
     for (let i = 0; i < (size ** 2); i++) {
@@ -82,69 +73,6 @@ function generateRandomColor() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     return `#${randomColor}`;
 }
-
-
-
-
-function drawRandomArt() {
-
-}
-
-
-// Event Listeners and Actions
-
-
-
-// Range Slider Controls and Display Function
-let slider = document.querySelector("#brush-slider");
-let output = document.querySelector("#brush-size-display");
-
-let warningText = document.querySelector("#warning");
-
-output.innerHTML = slider.value;
-slider.oninput = function() {
-    gridCanvas.innerHTML = '';
-    output.innerHTML = this.value;
-    currentSize = 100 - this.value;
-    drawGrid(currentSize);
-}
-
-////////////////////
-slider.addEventListener("touchstart", function() {
-    warningText.style.display = "block";
-});
-
-slider.addEventListener("mousedown", function() {
-    warningText.style.display = "block";
-});
-
-slider.addEventListener("touchend", function() {
-    warningText.style.display = "none";
-});
-
-slider.addEventListener("mouseup", function() {
-    warningText.style.display = "none";
-});
-
-
-
-window.addEventListener('load', function() {
-    drawGrid(currentSize);
-})
-
-
-// Brush Color Selector
-const brushColor = document.querySelector("#brush-color-selector");
-const brushLabel = document.querySelector("#brush-label");
-const brushSizeText = document.querySelector("#brush-size-text");
-const headingWords = document.querySelectorAll(".heading-word");
-const footerLink = document.querySelectorAll(".footer-link");
-
-brushColor.addEventListener("change", () => {
-    currentBrushColor = brushColor.value;
-    updateBrushColors(currentBrushColor);
-})
-
 function updateBrushColors(color) {
     brushLabel.style.color = color;
     brushSizeText.style.color = color;
@@ -161,19 +89,6 @@ function updateBrushColors(color) {
     let thumb = document.querySelector("#brush-slider");
     thumb.style.setProperty('--thumb-clr', `${color}`);
 }
-
-
-
-
-// Background Color Selector
-const bgColor = document.querySelector("#bg-color-selector");
-const bgLabel = document.querySelector("#bg-label");
-const headingDashes = document.querySelectorAll(".heading-dash");
-bgColor.addEventListener("change", () => {
-    currentBackgroundColor = bgColor.value;
-    updateBackgroundColors(currentBackgroundColor);
-});
-
 function updateBackgroundColors(color) {
     gridCanvas.style.backgroundColor = color;
     bgLabel.style.color = color;
@@ -186,12 +101,62 @@ function updateBackgroundColors(color) {
     track.style.setProperty("--track-clr", `${color}`);
 }
 
+// ------- Event Listeners and Actions ------
 
+// On Page Load
+window.addEventListener('load', function() {
+    drawGrid(currentSize);
+})
 
+// Range Slider Controls and Display Function
+let slider = document.querySelector("#brush-slider");
+let output = document.querySelector("#brush-size-display");
+let warningText = document.querySelector("#warning");
+output.innerHTML = slider.value;
+slider.oninput = function() {
+    gridCanvas.innerHTML = '';
+    output.innerHTML = this.value;
+    currentSize = 100 - this.value;
+    drawGrid(currentSize);
+}
+
+// Popup Warning for Brush Size Slider
+slider.addEventListener("touchstart", function() {
+    warningText.style.display = "block";
+});
+slider.addEventListener("mousedown", function() {
+    warningText.style.display = "block";
+});
+slider.addEventListener("touchend", function() {
+    warningText.style.display = "none";
+});
+slider.addEventListener("mouseup", function() {
+    warningText.style.display = "none";
+});
+
+// Brush Color Selector
+const brushColor = document.querySelector("#brush-color-selector");
+const brushLabel = document.querySelector("#brush-label");
+const brushSizeText = document.querySelector("#brush-size-text");
+const headingWords = document.querySelectorAll(".heading-word");
+const footerLink = document.querySelectorAll(".footer-link");
+
+brushColor.addEventListener("change", () => {
+    currentBrushColor = brushColor.value;
+    updateBrushColors(currentBrushColor);
+})
+
+// Background Color Selector
+const bgColor = document.querySelector("#bg-color-selector");
+const bgLabel = document.querySelector("#bg-label");
+const headingDashes = document.querySelectorAll(".heading-dash");
+bgColor.addEventListener("change", () => {
+    currentBackgroundColor = bgColor.value;
+    updateBackgroundColors(currentBackgroundColor);
+});
 
 // Eraser
 let lastBrushColor = currentBrushColor
-
 eraserCheckbox.addEventListener("change", () => {
     eraserOn = !eraserOn;
     if (eraserOn) {
@@ -202,15 +167,11 @@ eraserCheckbox.addEventListener("change", () => {
     }
 })
 
-
-
 // Grid Toggle
 const gridCheckbox = document.querySelector("#show-grid-checkbox");
 gridCheckbox.addEventListener("change", () => {
     gridToggle();
 })
-
-
 
 // Clear All
 const clearCanvas = document.querySelector("#reset-canvas-button");
@@ -220,7 +181,6 @@ const clearCanvas = document.querySelector("#reset-canvas-button");
         drawGrid(currentSize);
         gridCanvas.style.backgroundColor = currentBackgroundColor;
 }))
-
 
 // Color Randomizer
 const randomColorButton = document.querySelector("#random-colors-button");

@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allerta&family=Annie+Use+Your+Telescope&family=Gloria+Hallelujah&family=Josefin+Slab&display=swap');
 
-/* :root {
-    --slider-clr: #28393D;
-} */
-
 /* ----- UNIVERSAL ----- */
 *,
 *::before,
@@ -15,7 +11,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Londrina Sketch";
-
     background-color: rgb(166, 166, 166);
     color: #28393D;
 }
@@ -91,14 +86,12 @@ button {
 .slider-container {
     margin-bottom: 0;
 }
-
 #warning {
     font-family: "Allerta";
     font-size: 10px;
     color: red;
     display: none;
 }
-
 .checkbox {
     margin: 5px;
     height: 25px;
@@ -106,7 +99,6 @@ button {
     border-radius: 10%;
     accent-color: #28393D;
 }
-
 .color-picker {
     height: 35px;
     width: 35px;
@@ -122,46 +114,36 @@ button {
 #brush-label {
     color: #28393D
 }
-#reset-canvas-button {
-
-}
 #reset-canvas-button:hover {
     background-color: #28393D;
     color: #eef1f3;
 }
-
-
 #random-colors-button:hover {
     background-image: linear-gradient(to right, rgb(88, 175, 0), rgb(187, 132, 29), rgb(125, 2, 117), rgb(16, 133, 104), rgb(28, 95, 189), rgb(159, 69, 42), rgb(42, 13, 138), rgb(88, 175, 0));
     animation:slidebg 6s linear infinite;
     color: white;
 }
-
 #random-colors-button,
 #reset-canvas-button {
     text-decoration: none;
     color: #28393D;
 }
+
 @keyframes slidebg {
     to {
       background-position:20vw;
     }
   }
-  
   .follow{
     margin-top: 40px;
   }
-  
   .follow a{
     color: black;
     padding: 8px 16px;
     text-decoration: none;
   }
 
-
-
 /* ----- RANGE SLIDER ----- */
-/*********** Baseline, reset styles ***********/
 #brush-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -169,21 +151,16 @@ button {
     cursor: pointer;
     width: 200px;
 }
-
-/* Removes default focus */
 #brush-slider:focus {
     outline: none;
 }
 
 /******** Chrome, Safari, Opera and Edge Chromium styles ********/
-/* slider track */
 #brush-slider::-webkit-slider-runnable-track {
     background-color: var(--track-clr, #eef1f3);
     border-radius: 1rem;
     height: 0.5rem;
 }
-
-/* slider thumb */
 #brush-slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
@@ -193,21 +170,12 @@ button {
     height: 16px;
     width: 16px;
 }
-
-/* #brush-slider:focus::-webkit-slider-thumb {
-    outline: 3px solid #28393D;
-    outline-offset: 0.125rem;
-} */
-
 /*********** Firefox styles ***********/
-/* slider track */
 #brush-slider::-moz-range-track {
     background-color: var(--track-clr, #eef1f3);
     border-radius: 1rem;
     height: 0.5rem;
 }
-
-/* slider thumb */
 #brush-slider::-moz-range-thumb {
     background-color: var(--thumb-clr, #28393D);
     border: none; /*Removes extra border that FF applies*/
@@ -215,11 +183,6 @@ button {
     height: 16px;
     width: 16px;
 }
-
-/* #brush-slider:focus::-moz-range-thumb{
-    outline: 3px solid #28393D;
-    outline-offset: 0.125rem;
-} */
 
 
 /* ----- EXPERIMENTAL MODE ----- */
@@ -231,7 +194,6 @@ button {
     margin-right: 15px;
     font-family: "Gloria Hallelujah";
     font-weight: bold;
-
 }
 #AI-description {
     font-size: 12px;
@@ -245,7 +207,6 @@ button {
     right: 50px;
     margin-top: 0;
     margin-bottom: 15px;
-
 }
 .prompt-form {
     display: flex;
@@ -294,7 +255,6 @@ button {
 
     position: relative;
 }
-
 .neon-button::before {
     pointer-events: none;
     content: "";
@@ -308,9 +268,7 @@ button {
     transform: perspective(1em) rotateX(30deg) scale(1, 0.35);
     filter: blur(1.5em);
     opacity: 0.7;
-
 }
-
 .neon-button::after {
     content: "";
     position: absolute;
@@ -322,9 +280,7 @@ button {
     opacity: 0;
     
     transition: opacity 100ms linear;
-    
 }
-
 .neon-button:hover,
 .neon-button:focus {
     background: #e522c4;
@@ -334,7 +290,6 @@ button {
 .neon-button:hover::after {
     opacity: 1;
 }
-
 #experimental-main {
     background-color: #0a0a0a;
     color: #67c718;
@@ -358,24 +313,20 @@ button {
     text-decoration: none;
     color: #67c718
 }
-
 .exp-footer-link:visited {
     text-decoration: none;
     color: #386e0c
 }
-
 .exp-footer-link:hover {
     text-decoration: none;
     color: #891877;
 }
-
 .exp-footer-link:active {
     text-decoration: none;
     color: #e522c4;
 }
 
 /* ----- MEDIA QUERIES ----- */
-
 @media (min-width: 580px) {
     h1 {
         font-size: 60px;
@@ -421,7 +372,6 @@ button {
     }
 }
 @media (min-width: 960px) {
-
     h1 {
         font-size: 75px;
         margin: 15px;
@@ -440,15 +390,10 @@ button {
         width: 85vh;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        /* display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around; */
     }
     .footer {
         width: 90%;
     }
-    
-
     #AI-description {
         font-size: 30px;
     }
@@ -462,8 +407,5 @@ button {
         width: 400px;
         height: 50px;
     }
-
-
-
 }
 

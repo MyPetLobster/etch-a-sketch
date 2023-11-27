@@ -1,5 +1,3 @@
-const gridCanvas = document.querySelector(".canvas");
-
 function drawGrid(size) {
     let pixelSize = (100/size)
     for (let i = 0; i < (size ** 2); i++) {
@@ -10,16 +8,10 @@ function drawGrid(size) {
         gridCanvas.appendChild(gridItem);
     }
 }
-
-window.addEventListener('load', function() {
-    drawGrid(99);
-})
-
 function generateRandomColor() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     return `#${randomColor}`;
 }
-
 function drawRandom(color) {
     const pixelList = document.querySelectorAll('.pixel');
     const gridSize = Math.sqrt(pixelList.length);
@@ -55,9 +47,6 @@ function drawRandom(color) {
         }
     }
 }
-
-
-
 function picasso() {
     let pixelList = document.querySelectorAll(".pixel");
     if (pixelList.length === 0) {
@@ -68,8 +57,6 @@ function picasso() {
         drawRandom(generateRandomColor());
     }
 }
-
-
 function handleForm(event) {
     event.preventDefault();
     gridCanvas.innerHTML = "";
@@ -91,11 +78,8 @@ function handleForm(event) {
     const coolDude = ["cool", "cool dude", "awesome"];
     const family = ["family", "love", "wife", "husband", "married", "couple", "soulmate"];
     const guns = ["gun", "guns", "firearm", "firearms", "shoot", "shooting"];
-    
-
     const nature = ["nature", "scenic", "breathtaking", "outdoor", "outside", "outdoors",
                     "lake", "pond", "ocean", "river", "water", "mountain", "mountains", "forest"];
-
     const prettyLady = ["pretty", "lady", "pretty lady", "pretty woman", "beautiful", "sexy",
                         "woman", "hot", "hot woman", "sexy lady", "bombshell", "babe", 
                         "supermodel"];
@@ -243,54 +227,11 @@ function handleForm(event) {
     }
 }
 
-
+const gridCanvas = document.querySelector(".canvas");
 const textField = document.querySelector(".prompt-text");
 const promptForm = document.querySelector(".prompt-form");
 
+window.addEventListener('load', function() {
+    drawGrid(99);
+})
 promptForm.addEventListener('submit', handleForm);
-
-
-
-
-
-// // Submit Prompt
-// function handleForm(event) {
-//     event.preventDefault();
-//     const inputValue = textField.value.toLowerCase(); // Convert the input to lowercase for case-insensitive comparison
-//     if (inputValue === "mona lisa") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/mona-lisa.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";
-//     } else if (inputValue === "dog") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/dog-1.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue === "dogs" || inputValue === "cute") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/joselyn-daisy.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue === "cat" || inputValue === "kitty") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/cat-2.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue === "handsome" || inputValue === "hot") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/handsome.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue === "bff" || inputValue === "friends") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/bff.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue === "love" || inputValue === "family") {
-//         gridCanvas.innerHTML = "";
-//         gridCanvas.style.backgroundImage = "url('../../images/family.jpg')";
-//         gridCanvas.style.backgroundSize = "contain";  // Fix here
-//     } else if (inputValue !== "") {
-//         picasso();
-//     }
-// }
-
-
-
-
-
