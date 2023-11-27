@@ -98,6 +98,9 @@ function drawRandomArt() {
 // Range Slider Controls and Display Function
 let slider = document.querySelector("#brush-slider");
 let output = document.querySelector("#brush-size-display");
+
+let warningText = document.querySelector("#warning");
+
 output.innerHTML = slider.value;
 slider.oninput = function() {
     gridCanvas.innerHTML = '';
@@ -105,6 +108,24 @@ slider.oninput = function() {
     currentSize = 100 - this.value;
     drawGrid(currentSize);
 }
+
+////////////////////
+slider.addEventListener("touchstart", function() {
+    warningText.style.display = "block";
+});
+
+slider.addEventListener("mousedown", function() {
+    warningText.style.display = "block";
+});
+
+slider.addEventListener("touchend", function() {
+    warningText.style.display = "none";
+});
+
+slider.addEventListener("mouseup", function() {
+    warningText.style.display = "none";
+});
+
 
 
 window.addEventListener('load', function() {

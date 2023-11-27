@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allerta&family=Annie+Use+Your+Telescope&family=Gloria+Hallelujah&family=Josefin+Slab&display=swap');
 
 /* :root {
     --slider-clr: #28393D;
@@ -31,7 +32,8 @@ h1 {
     margin: 15px;
 }
 h3 {
-    font-size: 16px;
+    font-family: "Gloria Hallelujah";
+    font-size: 12px;
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -50,10 +52,12 @@ label {
     font-weight: bold;
 }
 footer {
-    width: 85vw;
+    font-family: "Gloria Hallelujah";
+    font-size: 10px;
+    width: 95vw;
     display: flex;
     justify-content: space-between;
-    font-size: 14px
+    margin-bottom: 10px;
 }
 .footer-link {
     text-decoration: none;
@@ -67,7 +71,7 @@ button {
     font-size: 24px;
     font-family: "Londrina Shadow";
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 15px;
     margin: 15px;
 }
 
@@ -86,6 +90,16 @@ button {
     flex-direction: column;
     margin: 15px;
     align-items: center;
+}
+.slider-container {
+    margin-bottom: 0;
+}
+
+#warning {
+    font-family: "Allerta";
+    font-size: 10px;
+    color: red;
+    display: none;
 }
 
 .checkbox {
@@ -119,10 +133,17 @@ button {
     color: #eef1f3;
 }
 
+
 #random-colors-button:hover {
     background-image: linear-gradient(to right, rgb(88, 175, 0), rgb(187, 132, 29), rgb(125, 2, 117), rgb(16, 133, 104), rgb(28, 95, 189), rgb(159, 69, 42), rgb(42, 13, 138), rgb(88, 175, 0));
     animation:slidebg 6s linear infinite;
     color: white;
+}
+
+#random-colors-button,
+#reset-canvas-button {
+    text-decoration: none;
+    color: #28393D;
 }
 @keyframes slidebg {
     to {
@@ -211,20 +232,20 @@ button {
     flex-wrap: wrap;
     margin-left: 15px;
     margin-right: 15px;
-    font-family: "Londrina Outline";
+    font-family: "Gloria Hallelujah";
     font-weight: bold;
 
 }
 #AI-description {
-    font-size: 20px;
+    font-size: 12px;
     margin-top: 15px;
     margin-bottom: 5px;
 }
 #scientific-amurica {
-    font-size: 16px;
+    font-size: 10px;
     text-align: right;
     position: relative;
-    right: 80px;
+    right: 50px;
     margin-top: 0;
     margin-bottom: 15px;
 
@@ -242,19 +263,22 @@ button {
     color: #e522c4;
 }
 .prompt-text {
-    font-family: "Londrina Shadow";
-    font-size: 18px;
-    width: 250px;
+    font-family: "Annie Use Your Telescope";
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
     height: 30px;
     border-radius: 10px;
 }
+.prompt-text::placeholder {
+    color: rgb(215, 224, 216);
+}
 .neon-button {
-
-    font-family: "Londrina Shadow";
+    font-family: "Gloria Hallelujah";
     font-weight: bold;
     margin-top: 12px;
     margin-bottom: 60px;
-    font-size: 24px;
+    font-size: 16px;
 
     display: inline-block;
     cursor: pointer;
@@ -330,7 +354,7 @@ button {
     color: #e522c4;
 }
 #experimental-canvas {
-    background-color: #d1fbcd;
+    background-color: rgb(215, 224, 216);
     border: 8px solid #e522c4;
 }
 .exp-footer-link:link {
@@ -354,7 +378,8 @@ button {
 }
 
 /* ----- MEDIA QUERIES ----- */
-@media (min-width: 640px) {
+
+@media (min-width: 580px) {
     h1 {
         font-size: 60px;
         margin: 15px;
@@ -364,10 +389,11 @@ button {
     }
     h3 {
         font-size: 26px;
+        font-family: "Londrina Sketch";
     }
     footer {
         width: 85vh;
-        font-size: 18px;
+        font-size: 14px;
     }
     #AI-description {
         font-size: 26px;
@@ -379,8 +405,22 @@ button {
         font-size: 35px;
     }
     .prompt-text {
-        width: 400px;
+        width: 300px;
         height: 40px;
+        font-size: 24px;
+    }
+    .testimonial-container {
+        font-family: "Londrina Outline";
+    }
+    #AI-description {
+        font-size: 20px;
+    }
+    #scientific-amurica {
+        font-size: 16px;
+    }
+    .neon-button {
+        font-family: "Londrina Shadow";
+        font-size: 24px;
     }
 }
 @media (min-width: 960px) {
@@ -422,7 +462,7 @@ button {
         font-size: 40px;
     }
     .prompt-text {
-        width: 600px;
+        width: 400px;
         height: 50px;
     }
 
