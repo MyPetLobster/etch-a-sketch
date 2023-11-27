@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allerta&family=Annie+Use+Your+Telescope&family=Gloria+Hallelujah&family=Josefin+Slab&display=swap');
 
+:root {
+    --reset-canvas-bgcolor: #28393D;
+}
+
 /* ----- UNIVERSAL ----- */
 *,
 *::before,
@@ -115,7 +119,7 @@ button {
     color: #28393D
 }
 #reset-canvas-button:hover {
-    background-color: #28393D;
+    background-color: var(--reset-canvas-bgcolor);
     color: #eef1f3;
 }
 #random-colors-button:hover {
@@ -409,3 +413,11 @@ button {
     }
 }
 
+
+
+#random-colors-button {
+    border: 3px solid #28393D;
+}
+#reset-canvas-button {
+    border: 3px solid #eef1f3;
+}

@@ -193,4 +193,9 @@ randomColorButton.addEventListener("click", () => {
 
     bgColor.value = currentBackgroundColor;
     updateBackgroundColors(currentBackgroundColor);
+
+    randomColorButton.style.border = `3px solid ${currentBrushColor}`;
+    clearCanvas.style.border = `3px solid ${currentBackgroundColor}`;
+
+    document.documentElement.style.setProperty('--reset-canvas-bgcolor', `${currentBackgroundColor}`);
 })
