@@ -94,7 +94,7 @@ function handleForm(event) {
     
 
     const nature = ["nature", "scenic", "breathtaking", "outdoor", "outside", "outdoors",
-                    "lake", "pond", "ocean", "river", "water", "mountain", "mountains"];
+                    "lake", "pond", "ocean", "river", "water", "mountain", "mountains", "forest"];
 
     const prettyLady = ["pretty", "lady", "pretty lady", "pretty woman", "beautiful", "sexy",
                         "woman", "hot", "hot woman", "sexy lady", "bombshell", "babe", 
