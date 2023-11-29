@@ -185,6 +185,9 @@ const clearCanvas = document.querySelector("#reset-canvas-button");
 // Color Randomizer
 const randomColorButton = document.querySelector("#random-colors-button");
 randomColorButton.addEventListener("click", () => {
+    eraserCheckbox.checked = false;
+    eraserOn = false;
+
     currentBackgroundColor = generateRandomColor();
     currentBrushColor = generateRandomColor();
 
