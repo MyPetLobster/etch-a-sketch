@@ -144,7 +144,9 @@ const footerLink = document.querySelectorAll(".footer-link");
 brushColor.addEventListener("change", () => {
     currentBrushColor = brushColor.value;
     updateBrushColors(currentBrushColor);
+    randomColorButton.style.border = `3px solid ${currentBrushColor}`;
 })
+
 
 // Background Color Selector
 const bgColor = document.querySelector("#bg-color-selector");
@@ -153,6 +155,7 @@ const headingDashes = document.querySelectorAll(".heading-dash");
 bgColor.addEventListener("change", () => {
     currentBackgroundColor = bgColor.value;
     updateBackgroundColors(currentBackgroundColor);
+    clearCanvas.style.border = `3px solid ${currentBackgroundColor}`;
 });
 
 // Eraser
