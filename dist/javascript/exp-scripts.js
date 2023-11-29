@@ -61,6 +61,7 @@ function handleForm(event) {
     event.preventDefault();
     gridCanvas.innerHTML = "";
     const inputValue = textField.value.toLowerCase().trim();
+    textField.value = "";
     let randomSelect = 0;
 
     const monaLisa = ["mona lisa", "mona", "art", "painting"];
@@ -225,6 +226,7 @@ function handleForm(event) {
     } else if (inputValue !== "") {
         picasso();
     }
+    
 }
 
 const gridCanvas = document.querySelector(".canvas");
