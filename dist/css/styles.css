@@ -91,6 +91,7 @@ button {
     margin-bottom: 0;
 }
 #warning {
+    background-color: #eef1f3;
     text-align: center;
     width: auto;
     position: absolute;
